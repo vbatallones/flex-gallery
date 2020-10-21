@@ -19,6 +19,7 @@ body {
 .panels {
     min-height: 100vh;
     overflow: hidden;
+    display: flex;
 }
 
 .panel {
@@ -33,14 +34,19 @@ body {
     font-size: 20px;
     background-size: cover;
     background-position: center;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
 }
 
 .panel1 {
-    background-image: url(./static/20190615_161713.jpg);
+    background-image: url(./static/20200424_193951.jpg);
 }
 
 .panel2 {
-    background-image: url(./static/20200424_193951.jpg);
+    background-image: url(./static/20190719_102015.jpg);
 }
 
 .panel3 {
@@ -52,7 +58,7 @@ body {
 }
 
 .panel5 {
-    background-image: url(./static/20200624_184330.jpg);
+    background-image: url(./static/20191219_094451.jpg);
 }
 
 /* FLEX Children */
@@ -61,7 +67,16 @@ body {
     margin: 0;
     width: 100%;
     transition: transform 0.5s;
+    flex: 1 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+.panel > *:first-child {transform: translateY(-100%);}
+.panel.open-active > *:first-child {transform: translateY(0);}
+.panel > *:last-child {transform: translateY(100%);}
+.panel.open-active > *:last-child {transform: translateY(0);}
 
 .panel p {
     text-transform: uppercase;
@@ -75,5 +90,6 @@ body {
 }
 
 .panel.open {
+    flex: 5;
     font-size: 40px;
 }
